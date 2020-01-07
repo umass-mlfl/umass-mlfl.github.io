@@ -1,37 +1,15 @@
-## Welcome to GitHub Pages
+---
+layout: post
+title: "About"
+permalink: /
+---
 
-You can use the [editor on GitHub](https://github.com/umass-mlfl/umass-mlfl.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Machine Learning and Friends Lunch is a lively and interactive forum held weekly where friends of the UMass Amherst machine learning community gather for a 50-minute presentation on recent machine learning research.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+See this semester's schedule [here](). Previous semesters' talks (including some videos) are in our [archive]().
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Details
+MLFL is held on Thursdays from 12:00 pm to 1:00 pm (unless otherwise noted) in CS 150 (in the computer science building). Pizza is available starting at 11:45 am. Everyone is welcome.
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/umass-mlfl/umass-mlfl.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+This semester, MLFL has been graciously sponsored by our friends at Oracle Labs. 
