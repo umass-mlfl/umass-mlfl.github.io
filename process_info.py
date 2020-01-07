@@ -28,8 +28,6 @@ layout: post
 title: "%%SPEAKER%% -- %%TITLE%%"
 ---
 
-<br />
-
 {% include youtubePlayer.html yturl="%%YTURL%%" %}
 
 ## Bio
