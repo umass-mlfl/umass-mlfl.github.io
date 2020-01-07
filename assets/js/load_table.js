@@ -1,14 +1,10 @@
-
-
 $(document).ready(function() {
-$.ajax ({ url: "../../video_archive.json", method: "GET"})
-.done(function (response) {
-    $('#videos').DataTable( {
-        data: response,
+    var video_table = $('#videos').DataTable( {
+        ajax: "../../video_archive.txt",
         columns: [
             { title: "Name" },
             { title: "Title" },
-            { title: "Bio" },
+            { title: "Date" },
             { title: "Video",
                 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
               console.log(sData);
@@ -19,15 +15,10 @@ $.ajax ({ url: "../../video_archive.json", method: "GET"})
     } );
 } );
 
-});
 
-
-
-$.ajax ({ url: "../../abstract_archive.json", method: "GET"})
-.done(function (response) {
 $(document).ready(function() {
-    $('#abstracts').DataTable( {
-        data: response,
+    var abstract_table = $('#abstracts').DataTable( {
+        ajax: "../../abstract_archive.txt",
         columns: [
             { title: "Name" },
             { title: "Title" },
@@ -36,7 +27,6 @@ $(document).ready(function() {
             { title: "Abstract" },
         ]
     } );
-} );
 
 });
 
