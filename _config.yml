@@ -1,6 +1,6 @@
-# Site settings
-title:          MLFL
-description:    "Machine Learning and Friends Lunch"
+#name Site settings
+title:          "MLFL"
+description:    "Machine Learning & Friends Lunch"
 baseurl:        ""
 url:            "https://umass-mlfl.github.io"
 
@@ -27,7 +27,6 @@ plugins:
 
 # Permalinks
 permalink:      /:year-:month-:day/:title
-paginate:       5
 
 # Excludes
 exclude: [ Gemfile, Gemfile.lock, tale.gemspec, process_info.py ]

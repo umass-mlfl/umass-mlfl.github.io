@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "About"
+title: "About Machine Learning & Friends Lunch"
 permalink: /
 ---
 
