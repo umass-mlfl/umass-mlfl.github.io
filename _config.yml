@@ -32,5 +32,7 @@ paginate:       5
 # Excludes
 exclude: [ Gemfile, Gemfile.lock, tale.gemspec ]
 
+keep_files: [assets]
+
 # Disqus (Set to your disqus id)
 disqus:         jekyll-tale
