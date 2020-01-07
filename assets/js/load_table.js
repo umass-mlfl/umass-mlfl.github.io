@@ -1,5 +1,8 @@
 $(document).ready(function() {
     var video_table = $('#videos').DataTable( {
+        paging:   false,
+        searching: false,
+        info:     false,
         ajax: "../../video_archive.txt",
         columns: [
             { title: "Name", data: "speaker"},
@@ -30,6 +33,9 @@ function format ( d ) {
 
 $(document).ready(function() {
     var abstract_table = $('#abstracts').DataTable( {
+        paging:   false,
+        ordering: false,
+        info:     false,
         ajax: "../../abstract_archive.txt",
         columns: [
 					 {
