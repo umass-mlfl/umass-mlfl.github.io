@@ -1,8 +1,8 @@
 
 
+$(document).ready(function() {
 $.ajax ({ url: "../../video_archive.json", method: "GET"})
 .done(function (response) {
-$(document).ready(function() {
     $('#videos').DataTable( {
         data: response,
         columns: [
