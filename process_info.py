@@ -8,16 +8,16 @@ ABSTRACT_ARCHIVE_FILE = "abstract_archive.txt"
 
 THIS_SEMESTER_KEYS = ["speaker", "title", "bio", "date"]
 VIDEO_ARCHIVE_KEYS = ["speaker", "title", "date", "video"]
-ABSTRACT_ARCHIVE_KEYS = ["speaker", "title", "bio", "date", "abstract"]
+ABSTRACT_ARCHIVE_KEYS = ["speaker", "title", "date", "bio", "abstract"]
 
 def make_table(records, keys, filename):
-  table = []
+  _unused = """table = []
   for record in records:
     record_list = []
     for key in keys:
       record_list.append(record[key])
-    table.append(record_list)
-  obj = {"data": table}
+    table.append(record_list)"""
+  obj = {"data": records}
   with open(filename, 'w') as f:
     f.write(json.dumps(obj))
 

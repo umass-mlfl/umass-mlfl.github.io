@@ -2,10 +2,10 @@ $(document).ready(function() {
     var video_table = $('#videos').DataTable( {
         ajax: "../../video_archive.txt",
         columns: [
-            { title: "Name" },
-            { title: "Title" },
-            { title: "Date" },
-            { title: "Video",
+            { title: "Name", data: "speaker"},
+            { title: "Title" , data: "title"},
+            { title: "Date", data: "date" },
+            { title: "Video", data: "video",
                 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
               console.log(sData);
             $(nTd).html("<a href='" + sData + "'> Video </a>");
@@ -15,18 +15,50 @@ $(document).ready(function() {
     } );
 } );
 
+function format ( d ) {
+    return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+        '<tr>'+
+            '<td>Bio:</td>'+
+            '<td>'+d.bio+'</td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>Abstract:</td>'+
+            '<td>'+d.abstract+'</td>'+
+        '</tr>'+
+        '</table>';
+}
 
 $(document).ready(function() {
     var abstract_table = $('#abstracts').DataTable( {
         ajax: "../../abstract_archive.txt",
         columns: [
-            { title: "Name" },
-            { title: "Title" },
-            { title: "Bio" },
-            { title: "Date" },
-            { title: "Abstract" },
+					 {
+                "className":      'details-control',
+                "orderable":      false,
+                "data":           null,
+                "defaultContent": ''
+            },
+            { title: "Speaker",
+              data: "speaker" },
+            { data: "title" },
+            { data: "date" },
         ]
     } );
 
-});
 
+$('#abstracts tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = abstract_table.row( tr );
+ 
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            // Open this row
+            row.child( format(row.data()) ).show();
+            tr.addClass('shown');
+        }
+    } );
+});
