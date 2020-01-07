@@ -1,1 +1,36 @@
-theme: jekyll-theme-modernist
+# Site settings
+title:          MLFL
+description:    "Machine Learning and Friends Lunch"
+baseurl:        ""
+url:            "https://umass-mlfl.github.io"
+
+# Author
+author:
+  name:         Neha Kennard
+
+# Build settings
+markdown:       kramdown
+include:
+  - _pages
+
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        compressed
+
+# Gems
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-seo-tag
+  # - jemoji #Uncomment this to allow emoji in your post
+
+# Permalinks
+permalink:      /:year-:month-:day/:title
+paginate:       5
+
+# Excludes
+exclude: [ Gemfile, Gemfile.lock, tale.gemspec ]
+
+# Disqus (Set to your disqus id)
+disqus:         jekyll-tale
