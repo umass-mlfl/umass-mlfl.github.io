@@ -16,7 +16,7 @@ $(document).ready(function() {
         paging:   false,
         ordering: false,
         info:     false,
-        ajax: "../../abstract_archive.txt",
+        ajax: "../../archive.txt",
         columns: [
 					 {
                 "className":      'details-control',
