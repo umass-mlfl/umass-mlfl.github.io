@@ -1,23 +1,3 @@
-$(document).ready(function() {
-    var video_table = $('#videos').DataTable( {
-        paging:   false,
-        searching: false,
-        info:     false,
-        ajax: "../../video_archive.txt",
-        columns: [
-            { title: "Name", data: "speaker"},
-            { title: "Title" , data: "title"},
-            { title: "Date", data: "date" },
-            { title: "Video", data: "video",
-                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-              console.log(sData);
-            $(nTd).html("<a href='" + sData + "'> Video </a>");
-        }
-    },
-        ]
-    } );
-} );
-
 function format ( d ) {
     return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
         '<tr>'+
@@ -48,6 +28,15 @@ $(document).ready(function() {
               data: "speaker" },
             { data: "title" },
             { data: "date" },
+            { title: "Video", data: "video",
+                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+              console.log(sData);
+            if (sData) {
+            $(nTd).html("<a href='" + sData + "'> Video </a>");
+            } else {
+            $(nTd).html("-");
+            }
+          }},
         ]
     } );
 
