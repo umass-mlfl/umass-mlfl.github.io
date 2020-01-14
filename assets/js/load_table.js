@@ -24,13 +24,18 @@ $(document).ready(function() {
                 "data":           null,
                 "defaultContent": ''
             },
-            { title: "Speaker",
-              data: "speaker" },
+            { title: "Speaker", data: "speaker",
+                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+            if (oData["website"]){
+              $(nTd).html("<a href='" + oData["website"] + "'> " + sData + " </a>");
+            } else {
+              $(nTd).html(sData);
+            }
+            }},
             { data: "title" },
             { data: "date" },
             { title: "Video", data: "video",
                 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-              console.log(sData);
             if (sData) {
             $(nTd).html("<a href='" + sData + "'> Video </a>");
             } else {
