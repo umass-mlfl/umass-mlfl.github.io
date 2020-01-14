@@ -81,9 +81,6 @@ def main():
           video_archive.append(talk)
         abstract_archive.append(talk)
 
-
-
-    print(len(video_archive))
     make_table(this_semester, THIS_SEMESTER_KEYS, THIS_SEMESTER_FILE)
     refresh_posts(this_semester)
     make_table(video_archive, VIDEO_ARCHIVE_KEYS, VIDEO_ARCHIVE_FILE)

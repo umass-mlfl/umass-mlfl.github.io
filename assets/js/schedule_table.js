@@ -5,7 +5,6 @@ $(document).ready(function(){
        dataType: 'json',
        success: function(sched_data) {
           console.log(sched_data["data"])
-           //alert('done');
            $('#schedule').bootstrapTable({
               data: sched_data["data"]
            });
