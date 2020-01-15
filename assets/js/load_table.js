@@ -35,8 +35,8 @@ $(document).ready(function() {
               $(nTd).html(sData);
             }
             }},
-            { data: "title" },
-            { data: "date" },
+            { data: "title", title: "Title" },
+            { data: "date", title: "Date" },
             { data: "area", title: "Research area" }, 
             { title: "Video", data: "video",
                 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
