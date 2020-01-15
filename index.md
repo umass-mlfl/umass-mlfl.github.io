@@ -6,7 +6,7 @@ permalink: /
 
 Machine Learning and Friends Lunch is a lively and interactive forum held weekly where friends of the UMass Amherst machine learning community gather for a 50-minute presentation on recent machine learning research.
 
-See this semester's schedule [here](). Previous semesters' talks (including some videos) are in our [archive]().
+See this semester's schedule [here](/schedule). Previous semesters' talks (including some videos) are in our [archive](/archive).
 
 
 ## Details

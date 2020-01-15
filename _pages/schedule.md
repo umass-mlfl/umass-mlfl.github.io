@@ -5,6 +5,10 @@ author: "Neha Kennard"
 permalink: /schedule/
 ---
 
+
+
+<h2 class="text-center">{{ site.current_semester_name }}</h2>
+
 <table class="display table table-bordered" id="schedule">
   <thead>
     <tr>
