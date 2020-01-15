@@ -11,6 +11,9 @@ function format ( d ) {
         '</table>';
 }
 
+var dateOptions = { weekday: 'short', month: 'short', day: 'numeric' };
+
+
 $(document).ready(function() {
     var abstract_table = $('#abstracts').DataTable( {
         paging:   false,
@@ -89,7 +92,11 @@ $(document).ready(function() {
             }
             }},
             { data: "title", title: "Title"},
-            { data: "date", title: "Date" }, 
+            { data: "date", title: "Date",
+                 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                var date_obj  = new Date(sData + " 00:00:00"); // Javascript date stuff is awful
+                $(nTd).html(date_obj.toLocaleDateString("en-US", dateOptions))
+            }},
             { data: "area", title: "Research area" }, 
         ],
       columnDefs: [{ orderable: false, targets: '_all' }]
