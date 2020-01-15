@@ -69,6 +69,7 @@ $(document).ready(function() {
         order: [[ 3, "asc" ]],
         paging:   false,
         info:     false,
+        bFilter: false,
         ajax: "../../this_semester.txt",
         columns: [
           { title: "", data: "key",
