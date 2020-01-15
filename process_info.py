@@ -61,12 +61,10 @@ def get_this_semester_dates():
     end_date = config["current_sem_end"]
     return start_date, end_date
 
-def is_this_semester(date_str, semester_dates):
-  date = datetime.datetime.strptime(date_str, '%Y-%m-%d').date()
+def is_this_semester(date, semester_dates):
   return date >= semester_dates[0] and date <= semester_dates[1]
 
-def is_future(date_str, semester_dates):
-  date = datetime.datetime.strptime(date_str, '%Y-%m-%d').date()
+def is_future(date, semester_dates):
   return date > semester_dates[1]
 
 def main():
@@ -85,10 +83,15 @@ def main():
       key = "".join(talk["speaker"].split())
       talk["key"] = key
       keys.append(key)
+
+      date_obj =  datetime.datetime.strptime(talk["date"], '%Y-%m-%d').date()
       
-      if is_future(talk["date"], this_sem_dates):
+      if is_future(date_obj, this_sem_dates):
         continue
-      if is_this_semester(talk["date"], this_sem_dates):
+    
+      talk["prettyDate"] = date_obj.strftime("%B %d")
+
+      if is_this_semester(date_obj, this_sem_dates):
         this_semester.append(talk)
       else:
         archive.append(talk)

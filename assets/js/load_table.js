@@ -11,9 +11,6 @@ function format ( d ) {
         '</table>';
 }
 
-var dateOptions = { weekday: 'short', month: 'short', day: 'numeric' };
-
-
 $(document).ready(function() {
     var abstract_table = $('#abstracts').DataTable( {
         paging:   false,
@@ -69,11 +66,11 @@ $('#abstracts tbody').on('click', 'td.details-control', function () {
 } );
 $(document).ready(function() {
     var schedule_table = $('#schedule').DataTable( {
-        order: [[ 3, "asc" ]],
         paging:   false,
         info:     false,
         bFilter: false,
         ajax: "../../this_semester.txt",
+        order: [[ 2, "asc" ]],
         columns: [
           { title: "", data: "key",
                 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
@@ -91,15 +88,17 @@ $(document).ready(function() {
               $(nTd).html(sData);
             }
             }},
+            { title: "Date", mRender: function (data, type, full) {
+              console.log(data);
+              console.log(full);
+    if(type == 'sort') return full.date;
+    return full.prettyDate
+  }
+          },
             { data: "title", title: "Title"},
-            { data: "date", title: "Date",
-                 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-                var date_obj  = new Date(sData + " 00:00:00"); // Javascript date stuff is awful
-                $(nTd).html(date_obj.toLocaleDateString("en-US", dateOptions))
-            }},
             { data: "area", title: "Research area" }, 
         ],
-      columnDefs: [{ orderable: false, targets: '_all' }]
+      columnDefs: [{ orderable: false, targets: '_all'}]
     } );
 } );
 
