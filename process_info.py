@@ -2,21 +2,15 @@ import os
 import csv
 import json
 import sys
+import yaml
+import datetime
 
+CONFIG_FILE = "_config.yml"
 THIS_SEMESTER_FILE = "this_semester.txt"
 ARCHIVE_FILE = "archive.txt"
 POST_DIR = "_posts"
 
-THIS_SEMESTER_KEYS = ["speaker", "title", "bio", "date"]
-ARCHIVE_KEYS = ["speaker", "title", "date", "bio", "abstract", "video", "website"]
-
-def make_table(records, keys, filename):
-  _unused = """table = []
-  for record in records:
-    record_list = []
-    for key in keys:
-      record_list.append(record[key])
-    table.append(record_list)"""
+def make_table(records, filename):
   obj = {"data": records}
   with open(filename, 'w') as f:
     f.write(json.dumps(obj))
@@ -60,25 +54,38 @@ def refresh_posts(this_semester):
     if talk["video"]:
       generate_post(talk)
 
+def get_this_semester_dates():
+  with open(CONFIG_FILE, 'r') as f:
+    config = yaml.load(f, Loader=yaml.FullLoader)
+    start_date = config["current_sem_start"]
+    end_date = config["current_sem_end"]
+    return start_date, end_date
+
+def is_this_semester(date_str, semester_dates):
+  date = datetime.datetime.strptime(date_str, '%Y-%m-%d').date()
+  return date >= semester_dates[0] and date <= semester_dates[1]
+
 def main():
-  master_file, current_semester, current_year = sys.argv[1:]
+  master_file, = sys.argv[1:]
+
+  this_sem_dates = get_this_semester_dates()
+  print(this_sem_dates)
 
   this_semester = []
   archive = []
   
   with open(master_file, 'r') as f:
     all_talks = csv.DictReader(f, delimiter="\t")
-
   
     for talk in all_talks:
-      if talk["semester"] == current_semester and str(talk["year"]) == current_year:
+      if is_this_semester(talk["date"], this_sem_dates):
         this_semester.append(talk)
       else:
         archive.append(talk)
 
-    make_table(this_semester, THIS_SEMESTER_KEYS, THIS_SEMESTER_FILE)
+    make_table(this_semester, THIS_SEMESTER_FILE)
     refresh_posts(this_semester)
-    make_table(archive, ARCHIVE_KEYS, ARCHIVE_FILE)
+    make_table(archive, ARCHIVE_FILE)
  
 
 if __name__ == "__main__":
