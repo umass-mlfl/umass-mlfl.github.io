@@ -14,7 +14,9 @@ function format(d) {
 $(document).ready(function() {
     var abstract_table = $('#abstracts').DataTable({
         paging: false,
-        ordering: false,
+        order: [
+            [3, "desc"]
+        ],
         info: false,
         ajax: "../../archive.txt",
         columns: [{
