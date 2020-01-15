@@ -44,6 +44,7 @@ $(document).ready(function() {
           }},
         ]
     } );
+} );
 
 
 $('#abstracts tbody').on('click', 'td.details-control', function () {
@@ -61,4 +62,34 @@ $('#abstracts tbody').on('click', 'td.details-control', function () {
             tr.addClass('shown');
         }
     } );
-});
+
+$(document).ready(function() {
+    var schedule_table = $('#schedule').DataTable( {
+        paging:   false,
+        ordering: false,
+        info:     false,
+        ajax: "../../this_semester.txt",
+        columns: [
+          { title: "", data: "key",
+                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+            if (sData) {
+            $(nTd).html("<img src='/assets/headshots/" + oData["key"] + ".jpg' width=150 onerror=\"this.onerror=null; this.src='/assets/images/MLFL.png'\"/>");
+            } else {
+            $(nTd).html("-");
+            }
+          }},
+            { title: "Speaker", data: "speaker",
+                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+            if (oData["website"]){
+              $(nTd).html("<a href='" + oData["website"] + "'> " + sData + " </a>");
+            } else {
+              $(nTd).html(sData);
+            }
+            }},
+            { data: "title", title: "Title"},
+            { data: "date", title: "Date" }, 
+        ]
+    } );
+} );
+
+
