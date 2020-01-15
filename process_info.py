@@ -1,3 +1,4 @@
+import collections
 import os
 import csv
 import json
@@ -9,6 +10,7 @@ CONFIG_FILE = "_config.yml"
 THIS_SEMESTER_FILE = "this_semester.txt"
 ARCHIVE_FILE = "archive.txt"
 POST_DIR = "_posts"
+HEADSHOTS_PATH = "assets/headshots/"
 
 def make_table(records, filename):
   obj = {"data": records}
@@ -54,6 +56,15 @@ def refresh_posts(this_semester):
     if talk["video"]:
       generate_post(talk)
 
+def check_images(this_semester):
+  for talk in this_semester:
+    maybe_path = HEADSHOTS_PATH + talk["key"] + ".jpg"
+    if not os.path.exists(maybe_path):
+      print("\n".join(
+      ["WARNING: Possibly missing headshot for " + talk["speaker"] + " in " + HEADSHOTS_PATH + ".",
+       "     Please name the file " + maybe_path]))
+    
+
 def get_this_semester_dates():
   with open(CONFIG_FILE, 'r') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
@@ -96,11 +107,16 @@ def main():
       else:
         archive.append(talk)
 
-    assert len(keys) == len(set(keys))
+    if not len(keys) == len(set(keys)):
+      for key, count in collections.Counter(keys).items():
+        if count > 1:
+          print("WARNING: Duplicate key detected. Please manually adjust the keys for the following cases:")
+          print("\t".join(["", key] + [talk["date"] for talk in this_semester + archive if talk["key"] == key]))
     make_table(this_semester, THIS_SEMESTER_FILE)
-    refresh_posts(this_semester)
     make_table(archive, ARCHIVE_FILE)
  
+    refresh_posts(this_semester)
+    check_images(this_semester)
 
 if __name__ == "__main__":
   main()
