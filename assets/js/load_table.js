@@ -45,7 +45,6 @@ $(document).ready(function() {
           }},
         ]
     } );
-} );
 
 
 $('#abstracts tbody').on('click', 'td.details-control', function () {
@@ -64,6 +63,7 @@ $('#abstracts tbody').on('click', 'td.details-control', function () {
         }
     } );
 
+} );
 $(document).ready(function() {
     var schedule_table = $('#schedule').DataTable( {
         order: [[ 3, "asc" ]],
