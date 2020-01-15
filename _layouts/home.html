@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+
+{% assign psize = site.posts | size %}
+{% if psize == 0 %} 
+  <p>Videos of this semester's talks will appear here.</p>
+{% endif %}
+
 {% for post in site.posts %}
   <article>
     <h2>
