@@ -4,7 +4,6 @@ $(document).ready(function(){
        url: '../../this_semester.txt',
        dataType: 'json',
        success: function(sched_data) {
-          console.log(sched_data["data"])
            $('#schedule').bootstrapTable({
               data: sched_data["data"]
            });
@@ -13,5 +12,4 @@ $(document).ready(function(){
            console.log(e.responseText);
        }
     });
-    console.log("Didn't work");
  });

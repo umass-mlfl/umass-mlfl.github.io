@@ -67,13 +67,12 @@ def is_this_semester(date_str, semester_dates):
 
 def is_future(date_str, semester_dates):
   date = datetime.datetime.strptime(date_str, '%Y-%m-%d').date()
-  return date <= semester_dates[1]
+  return date > semester_dates[1]
 
 def main():
   master_file, = sys.argv[1:]
 
   this_sem_dates = get_this_semester_dates()
-  print(this_sem_dates)
 
   this_semester = []
   archive = []
@@ -81,7 +80,12 @@ def main():
   with open(master_file, 'r') as f:
     all_talks = csv.DictReader(f, delimiter="\t")
   
+    keys = []
     for talk in all_talks:
+      key = "".join(talk["speaker"].split())
+      talk["key"] = key
+      keys.append(key)
+      
       if is_future(talk["date"], this_sem_dates):
         continue
       if is_this_semester(talk["date"], this_sem_dates):
@@ -89,6 +93,7 @@ def main():
       else:
         archive.append(talk)
 
+    assert len(keys) == len(set(keys))
     make_table(this_semester, THIS_SEMESTER_FILE)
     refresh_posts(this_semester)
     make_table(archive, ARCHIVE_FILE)
