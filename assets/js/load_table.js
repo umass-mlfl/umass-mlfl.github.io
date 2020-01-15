@@ -34,6 +34,7 @@ $(document).ready(function() {
             }},
             { data: "title" },
             { data: "date" },
+            { data: "area", title: "Research area" }, 
             { title: "Video", data: "video",
                 "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
             if (sData) {
@@ -65,8 +66,8 @@ $('#abstracts tbody').on('click', 'td.details-control', function () {
 
 $(document).ready(function() {
     var schedule_table = $('#schedule').DataTable( {
+        order: [[ 3, "asc" ]],
         paging:   false,
-        ordering: false,
         info:     false,
         ajax: "../../this_semester.txt",
         columns: [
@@ -88,7 +89,9 @@ $(document).ready(function() {
             }},
             { data: "title", title: "Title"},
             { data: "date", title: "Date" }, 
-        ]
+            { data: "area", title: "Research area" }, 
+        ],
+      columnDefs: [{ orderable: false, targets: '_all' }]
     } );
 } );
 
