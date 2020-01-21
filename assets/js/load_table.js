@@ -19,12 +19,14 @@ $(document).ready(function() {
         ],
         info: false,
         ajax: "../../archive.txt",
-        columns: [{
+        columns: [
+        {
             "className": 'details-control',
             "orderable": false,
             "data": null,
             "defaultContent": ''
-        }, {
+        },
+        {
             title: "Speaker",
             data: "speaker",
             "fnCreatedCell": function(nTd, sData, oData, iRow, iCol) {
@@ -73,6 +75,7 @@ $(document).ready(function() {
     });
 
 });
+
 $(document).ready(function() {
     var schedule_table = $('#schedule').DataTable({
         paging: false,
@@ -80,14 +83,22 @@ $(document).ready(function() {
         bFilter: false,
         ajax: "../../this_semester.txt",
         order: [
-            [2, "asc"]
+            [3, "asc"]
         ],
-        columns: [{
+        columns: [
+        {
+            "className": 'details-control',
+            "orderable": false,
+            "data": null,
+            "defaultContent": ''
+        },
+
+          {
             title: "",
             data: "key",
             "fnCreatedCell": function(nTd, sData, oData, iRow, iCol) {
                 if (sData) {
-                    $(nTd).html("<img src='/assets/headshots/" + oData["key"] + ".jpg' width=150 onerror=\"this.onerror=null; this.src='/assets/images/MLFL.png'\"/>");
+                    $(nTd).html("<img src='/assets/headshots/" + oData["key"] + "_" + oData["date"] + ".jpg' width=150 onerror=\"this.onerror=null; this.src='/assets/images/MLFL.png'\"/>");
                 } else {
                     $(nTd).html("-");
                 }
@@ -120,4 +131,22 @@ $(document).ready(function() {
             targets: '_all'
         }]
     });
+
+    $('#schedule tbody').on('click', 'td.details-control', function() {
+        var tr = $(this).closest('tr');
+        var row = schedule_table.row(tr);
+
+        if (row.child.isShown()) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        } else {
+            // Open this row
+            row.child(format(row.data())).show();
+            tr.addClass('shown');
+        }
+    });
+
+
+
 });

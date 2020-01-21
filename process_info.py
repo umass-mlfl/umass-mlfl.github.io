@@ -1,6 +1,7 @@
 import collections
 import os
 import csv
+import glob
 import json
 import sys
 import yaml
@@ -49,7 +50,7 @@ def generate_post(talk):
   
 
 def refresh_posts(this_semester):
-  for f in os.listdir(POST_DIR):
+  for f in glob.glob(POST_DIR + "/*"):
     os.remove(os.path.join(POST_DIR, f))
 
   for talk in this_semester:
@@ -58,7 +59,7 @@ def refresh_posts(this_semester):
 
 def check_images(this_semester):
   for talk in this_semester:
-    maybe_path = HEADSHOTS_PATH + talk["key"] + ".jpg"
+    maybe_path = HEADSHOTS_PATH + talk["key"] + "_" + talk["date"] +".jpg"
     if not os.path.exists(maybe_path):
       print("\n".join(
       ["WARNING: Possibly missing headshot for " + talk["speaker"] + " in " + HEADSHOTS_PATH + ".",
