@@ -53,9 +53,7 @@ def refresh_posts(this_semester):
   for f in glob.glob(POST_DIR + "/*"):
     os.remove(f)
 
-  print("This semester")
   for talk in this_semester:
-    print(talk["speaker"], talk["video"])
     if talk["video"]:
       generate_post(talk)
 
