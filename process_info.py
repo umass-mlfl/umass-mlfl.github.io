@@ -51,7 +51,7 @@ def generate_post(talk):
 
 def refresh_posts(this_semester):
   for f in glob.glob(POST_DIR + "/*"):
-    os.remove(os.path.join(POST_DIR, f))
+    os.remove(f)
 
   for talk in this_semester:
     if talk["video"]:
