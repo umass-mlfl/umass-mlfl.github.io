@@ -21,7 +21,7 @@ Speaker data is recorded in a Google sheets spreadsheet, which you should have a
 
 `python process_info.py /path/to/new/tsv/file.tsv`
 
-and then commit and push.
+and then commit and push. This script is compatible with Python 3.7.6.
 
 ## Speaker headshots
 
