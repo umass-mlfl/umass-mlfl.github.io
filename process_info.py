@@ -43,19 +43,33 @@ def generate_post(talk):
                 "%%BIO%%", talk["bio"]).replace(
                 "%%ABSTRACT%%", talk["abstract"])
 
-  new_post_filename = POST_DIR + "/" + "-".join([talk["date"]] + talk["speaker"].split()) + ".md"
-  
+  new_post_filename = "".join([
+      POST_DIR, "/",
+      "-".join([talk["date"]] + talk["speaker"].split()) + ".md"])
+
   with open(new_post_filename, 'w') as f:
     f.write(new_post)
-  
+  return new_post_filename
+
 
 def refresh_posts(this_semester):
-  for f in glob.glob(POST_DIR + "/*"):
+  old_posts = glob.glob(POST_DIR + "/*")
+  for f in old_posts:
     os.remove(f)
 
+  new_posts_speakers = []
   for talk in this_semester:
     if talk["video"]:
-      generate_post(talk)
+      new_post_filename = generate_post(talk)
+      if new_post_filename not in old_posts:
+        new_posts_speakers.append(talk["speaker"])
+  
+  if new_posts_speakers:
+    print("New posts added for the following speakers; remember to git add _posts/*")
+    print("  \n".join(new_posts_speakers))
+  else:
+    print("No new posts.")
+
 
 def check_images(this_semester):
   for talk in this_semester:
