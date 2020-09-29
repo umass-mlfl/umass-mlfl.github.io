@@ -3,7 +3,7 @@ layout: post
 title: "John Wieting -- Learning and Applications of Paraphrastic Representations for Natural Language"
 ---
 
-{% include youtubePlayer.html yturl="https://youtu.be/tQc1i4mgH-A" %}
+{% include youtubePlayer.html yturl="https://www.youtube.com/watch?v=tQc1i4mgH-A" %}
 
 ## Bio
 
