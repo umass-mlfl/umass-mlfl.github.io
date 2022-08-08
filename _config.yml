@@ -5,13 +5,13 @@ baseurl:        ""
 url:            "https://umass-mlfl.github.io"
 
 # MLFL settings
-current_semester_name: "Spring 2022"
-current_sem_start: 2022-01-01
-current_sem_end: 2022-05-31
+current_semester_name: "Fall 2022"
+current_sem_start: 2022-09-01
+current_sem_end: 2022-12-17
 
 # Author
 author:
-  name:         Kalpesh Krishna, Neha Kennard
+  name:         Kalpesh Krishna, Neha Kennard, Wenlong Zhao
 
 # Build settings
 markdown:       kramdown
