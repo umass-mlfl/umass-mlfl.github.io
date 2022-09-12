@@ -27,5 +27,6 @@ and then commit and push. This script is compatible with Python 3.7.6.
 
 ## Speaker headshots
 
-Speaker headshots are stored in `assets/headshots/`. They are stored as square images named `FirstnameLastname.jpg`. 
+Speaker headshots are stored in `assets/headshots/`. 
+They are stored as square images named `FirstnameMiddleNameLastname_yyyy-mm-dd.jpg`. 
 You may have to update the code if there are duplicate names. `process_info` will print a warning if this happens.

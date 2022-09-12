@@ -75,9 +75,10 @@ def check_images(this_semester):
   for talk in this_semester:
     maybe_path = HEADSHOTS_PATH + talk["key"] + "_" + talk["date"] +".jpg"
     if not os.path.exists(maybe_path):
-      print("\n".join(
-      ["WARNING: Possibly missing headshot for " + talk["speaker"] + " in " + HEADSHOTS_PATH + ".",
-       "     Please name the file " + maybe_path]))
+      print("\n".join([
+        "WARNING: Possibly missing headshot for " + talk["speaker"] + " in " + HEADSHOTS_PATH + ".",
+        "     Please name the file " + maybe_path
+      ]))
     
 
 def get_this_semester_dates():
