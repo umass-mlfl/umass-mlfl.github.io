@@ -17,4 +17,3 @@ Click to view [this semester's schedule](/schedule),
 [talks from previous semesters](/archive), and 
 [our Youtube channel for recorded talks](https://www.youtube.com/channel/UC9Gp6svBgsg1ilNWKqHioUw/videos).
 
-MLFL has been graciously sponsored by our friends at Oracle Labs.
