@@ -5,9 +5,9 @@ baseurl:        ""
 url:            "https://umass-mlfl.github.io"
 
 # MLFL settings
-current_semester_name: "Fall 2023"
-current_sem_start: 2023-09-01
-current_sem_end: 2023-12-17
+current_semester_name: "Spring 2024"
+current_sem_start: 2024-02-01
+current_sem_end: 2024-05-17
 
 # Author
 author:
