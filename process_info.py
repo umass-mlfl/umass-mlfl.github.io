@@ -104,9 +104,11 @@ def main():
   
   with open(master_file, 'r') as f:
     all_talks = csv.DictReader(f, delimiter="\t")
-  
+    
     keys = []
     for talk in all_talks:
+      #print(talk)
+      #print(talk['speaker'])
       key = "".join(talk["speaker"].split())
       talk["key"] = key
       keys.append(key)
