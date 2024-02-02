@@ -18,6 +18,7 @@ This affects what the semester is called, and which talks appear in "This semest
 ## Speaker data
 
 Speaker data is recorded in a Google sheets spreadsheet, which you should have access to if you are a MLFL organizer. 
+Add new rows for each speaker in the spreadsheet. The code cannot handle new lines in the abstract, make sure you remove new lines before pasting it into the spreadsheet. 
 Any time there are new updates to the Website Data spreadsheet, 
 download the sheet as a TSV (File > Download > Tab-separated values (.tsv)). Then, run
 
