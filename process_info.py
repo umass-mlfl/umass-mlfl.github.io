@@ -47,13 +47,16 @@ def generate_post(talk):
       POST_DIR, "/",
       "-".join([talk["date"]] + talk["speaker"].split()) + ".md"])
 
-  with open(new_post_filename, 'w') as f:
+  print(new_post_filename)
+
+  with open(new_post_filename, 'w+') as f:
     f.write(new_post)
   return new_post_filename
 
 
 def refresh_posts(this_semester):
   old_posts = glob.glob(POST_DIR + "/*")
+  #print(old_posts)
   for f in old_posts:
     os.remove(f)
 
@@ -132,7 +135,7 @@ def main():
           print("\t".join(["", key] + [talk["date"] for talk in this_semester + archive if talk["key"] == key]))
     make_table(this_semester, THIS_SEMESTER_FILE)
     make_table(archive, ARCHIVE_FILE)
- 
+
     refresh_posts(this_semester)
     check_images(this_semester)
 
