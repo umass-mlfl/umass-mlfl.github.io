@@ -7,7 +7,7 @@ title: "Michael Niemeyer -- Neural Representations for 3D Asset Reconstruction, 
 
 ## Bio
 
-
+Michael is a research scientist at Google working on 3D computer vision and generative modeling in Federico Tombari’s lab. In 2022, he completed his PhD at the Max Planck Institute in Tuebingen supervised by Andreas Geiger. The works Occupancy Networks and Differentiable Volumetric Rendering were selected among the top 15 most influential papers at CVPR 2019 and 2020, and he received the best paper award at CVPR 2021 for the GIRAFFE project.
 
 ## Abstract
 

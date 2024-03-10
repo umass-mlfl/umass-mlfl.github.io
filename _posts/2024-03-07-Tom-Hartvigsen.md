@@ -7,7 +7,7 @@ title: "Tom Hartvigsen -- Lifelong Editing for Language Models"
 
 ## Bio
 
-
+Tom Hartvigsen is an Assistant Professor of Data Science at the University of Virginia. He works to make machine learning trustworthy, robust, and socially-responsible enough for deployment in high-stakes, dynamic settings, especially those found in healthcare. Tom’s work has been published at the top venues for Machine Learning, NLP, and Data Mining including NeurIPS, ACL, KDD, and AAAI. Before joining UVA, Tom was a postdoc at MIT CSAIL. He holds a Ph.D. in Data Science from WPI and a Bachelor’s in Applied Math from SUNY Geneseo.
 
 ## Abstract
 
