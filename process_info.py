@@ -55,6 +55,10 @@ def generate_post(talk):
 
 
 def refresh_posts(this_semester):
+
+  from pathlib import Path
+  Path(POST_DIR).mkdir(parents=True, exist_ok=True)
+
   old_posts = glob.glob(POST_DIR + "/*")
   #print(old_posts)
   for f in old_posts:
