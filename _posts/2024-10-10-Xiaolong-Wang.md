@@ -7,7 +7,7 @@ title: "Xiaolong Wang -- Learning Humanoid Robots"
 
 ## Bio
 
-
+Xiaolong Wang is an Assistant Professor in the ECE department at the University of California, San Diego, and a Visiting Professor at NVIDIA Research. He received his Ph.D. in Robotics at Carnegie Mellon University. His postdoctoral training was at the University of California, Berkeley. His research focuses on the intersection between computer vision and robotics. His specific interest lies in learning visual representations from videos and physical robotic interaction data. These comprehensive representations are utilized to facilitate the learning of human-like robot skills, with the goal of generalizing the robot to interact effectively with a wide range of objects and environments in the real physical world. He is the recipient of the J. K. Aggarwal Prize, NSF CAREER Award, Intel Rising Star Faculty Award, and Research Awards from Sony, Amazon, Adobe, and CISCO.
 
 ## Abstract
 

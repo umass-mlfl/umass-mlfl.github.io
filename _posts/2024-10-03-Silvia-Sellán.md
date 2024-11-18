@@ -7,7 +7,7 @@ title: "Silvia Sellán -- Stochastic Computer Graphics"
 
 ## Bio
 
-
+Silvia is a current postdoc at MIT and an incoming faculty member at Columbia University, working on Computer Graphics and Geometry Processing. She is a Vanier Doctoral Scholar, an Adobe Research Fellow and the winner of the 2021 University of Toronto Arts & Science Dean’s Doctoral Excellence Scholarship. She has interned twice at Adobe Research and twice at the Fields Institute of Mathematics. She is also a founder and organizer of the Toronto Geometry Colloquium and a member of WiGRAPH.
 
 ## Abstract
 
