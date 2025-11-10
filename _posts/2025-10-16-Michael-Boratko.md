@@ -1,0 +1,14 @@
+---
+layout: post
+title: "Michael Boratko -- Representational Capacity of Vector Embeddings for Retrieval"
+---
+
+{% include youtubePlayer.html yturl="" %}
+
+## Bio
+
+Michael Boratko is a research scientist at Google DeepMind, where his work explores large-scale representation learning and new paradigms for retrieval, including generative retrieval and extreme long-context models. Prior to joining GDM he was a postdoctoral researcher at UMass Amherst in IESL under the direction of Andrew McCallum, where his research focused on geometric an region-based embeddings (notably box embeddings) blending set-theoretic, probabilistic, and geometric structure in learned representations. He earned his PhD in Mathematics from UMass Amherst in 2018 with work on harmonic analysis and variational techniques for geometric PDEs under advisors Andrea Nahmod and Néstor Guillén.
+
+## Abstract
+
+Vector embeddings have been tasked with an ever-increasing set of retrieval tasks over the years, with a nascent rise in using them for reasoning, instruction-following, coding, and more. These new tasks push a fixed set of target embeddings to flexibly capture any query and notion of relevance that can be given. While prior works have pointed out various limitations of vector embeddings, there is a common assumption that these difficulties are predominantly due to unrealistically complicated queries, and those that are not can be overcome with better training data and larger models. In this talk, I will discuss why this is not the case, and demonstrate how even simple queries and documents can encounter difficulties due to representational capacity and training dynamics. These observations build on our recent work [https://arxiv.org/abs/2508.21038] which connect known results in learning theory to the setting of retrieval which imply that the number of top-k subsets of targets capable of being returned as the result of some query is limited by the dimension of the embedding. In other words, even with perfect training data and massive models, there are simply some retrieval patterns which embeddings cannot express. I will then demonstrate empirical evidence of this limitation in action. Even when training free embeddings (not subject to model constraints) we find that existing training losses struggle to model the case where any pair of documents (i.e. k=2) should be capable of being retrieved on even a moderate (eg. 300) number of targets. I will then discuss our synthetic dataset LIMIT that stress tests models based on these observations, and we find that existing even state-of-the-art models fail on this dataset despite the simple nature of the task. I will argue that these results expose a bottleneck in representational choice and training dynamics for embedding models, and discuss potential methodological improvements to address these issues going forward.

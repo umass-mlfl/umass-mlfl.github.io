@@ -66,7 +66,7 @@ def refresh_posts(this_semester):
 
   new_posts_speakers = []
   for talk in this_semester:
-    if talk["video"]:
+    if talk["speaker"]:
       new_post_filename = generate_post(talk)
       if new_post_filename not in old_posts:
         new_posts_speakers.append(talk["speaker"])
