@@ -8,7 +8,7 @@ Machine Learning and Friends Lunch is a weekly interactive forum at UMass Amhers
 friends with broad interests in machine learning methods and applications 
 gather for presentations on cutting-edge research.
 
-MLFL is held on Thursdays from 12:00 pm to 1:00 pm Eastern Time in Computer Science Building Room 150/151, 
+MLFL is held on Wednesdays from 12:00 pm to 1:00 pm Eastern Time in Computer Science Laboratories Room E144, 
 unless otherwise noted. Talks are broadcast via Zoom. 
 Pizzas are available starting at 11:50 am. Everyone is welcome.
 

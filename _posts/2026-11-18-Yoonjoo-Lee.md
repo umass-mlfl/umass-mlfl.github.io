@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Yuanqi Du -- "
+title: "Yoonjoo Lee -- "
 ---
 
 {% include youtubePlayer.html yturl="" %}
