@@ -73,7 +73,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 2.0)
-  rake (~> 10.0)
+  rake (~> 12.3)
   tale!
 
 BUNDLED WITH

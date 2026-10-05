@@ -125,6 +125,17 @@ $(document).ready(function() {
         }, {
             data: "area",
             title: "Research area"
+        },
+	{
+            title: "Video",
+            data: "video",
+            "fnCreatedCell": function(nTd, sData, oData, iRow, iCol) {
+                if (sData) {
+                    $(nTd).html("<a href='" + sData + "'> Video </a>");
+                } else {
+                    $(nTd).html("-");
+                }
+            }
         }, ],
         columnDefs: [{
             orderable: false,

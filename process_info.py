@@ -47,19 +47,26 @@ def generate_post(talk):
       POST_DIR, "/",
       "-".join([talk["date"]] + talk["speaker"].split()) + ".md"])
 
-  with open(new_post_filename, 'w') as f:
+  print(new_post_filename)
+
+  with open(new_post_filename, 'w+') as f:
     f.write(new_post)
   return new_post_filename
 
 
 def refresh_posts(this_semester):
+
+  from pathlib import Path
+  Path(POST_DIR).mkdir(parents=True, exist_ok=True)
+
   old_posts = glob.glob(POST_DIR + "/*")
+  #print(old_posts)
   for f in old_posts:
     os.remove(f)
 
   new_posts_speakers = []
   for talk in this_semester:
-    if talk["video"]:
+    if talk["speaker"]:
       new_post_filename = generate_post(talk)
       if new_post_filename not in old_posts:
         new_posts_speakers.append(talk["speaker"])
@@ -75,9 +82,10 @@ def check_images(this_semester):
   for talk in this_semester:
     maybe_path = HEADSHOTS_PATH + talk["key"] + "_" + talk["date"] +".jpg"
     if not os.path.exists(maybe_path):
-      print("\n".join(
-      ["WARNING: Possibly missing headshot for " + talk["speaker"] + " in " + HEADSHOTS_PATH + ".",
-       "     Please name the file " + maybe_path]))
+      print("\n".join([
+        "WARNING: Possibly missing headshot for " + talk["speaker"] + " in " + HEADSHOTS_PATH + ".",
+        "     Please name the file " + maybe_path
+      ]))
     
 
 def get_this_semester_dates():
@@ -103,9 +111,11 @@ def main():
   
   with open(master_file, 'r') as f:
     all_talks = csv.DictReader(f, delimiter="\t")
-  
+    
     keys = []
     for talk in all_talks:
+      #print(talk)
+      #print(talk['speaker'])
       key = "".join(talk["speaker"].split())
       talk["key"] = key
       keys.append(key)
@@ -129,7 +139,7 @@ def main():
           print("\t".join(["", key] + [talk["date"] for talk in this_semester + archive if talk["key"] == key]))
     make_table(this_semester, THIS_SEMESTER_FILE)
     make_table(archive, ARCHIVE_FILE)
- 
+
     refresh_posts(this_semester)
     check_images(this_semester)
 
